@@ -1,0 +1,476 @@
+:root {
+  --paper: #f3e8d8;
+  --paper-light: #fbf3e7;
+  --ink: #2d3032;
+  --muted: #65615c;
+  --line: #2d3032;
+  --card: rgba(251, 243, 231, 0.74);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(rgba(45, 48, 50, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(45, 48, 50, 0.02) 1px, transparent 1px),
+    var(--paper);
+  background-size: 44px 44px;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(243, 232, 216, 0.92);
+  border-bottom: 2px solid var(--line);
+}
+
+.nav {
+  width: min(1120px, calc(100% - 32px));
+  min-height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo,
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  gap: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.mini-seal {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.nav-links {
+  gap: 24px;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--line);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.section {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 88px 0;
+}
+
+.hero {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  align-items: center;
+  gap: 56px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.08;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 24px;
+  font-size: clamp(3rem, 7vw, 6.35rem);
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  letter-spacing: -0.045em;
+}
+
+h3 {
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.hero-copy,
+.about-copy p,
+.section-heading p,
+.contact-card p {
+  color: var(--muted);
+  font-size: 1.18rem;
+}
+
+.hero-copy {
+  max-width: 630px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  color: var(--paper-light);
+  background: var(--ink);
+}
+
+.button.primary:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+.button.secondary {
+  color: var(--ink);
+  background: transparent;
+}
+
+.button.secondary:hover {
+  background: var(--paper-light);
+}
+
+.hero-logo-card,
+.contact-card,
+.lesson-card,
+.price-card,
+.feature {
+  background: var(--card);
+  border: 2px solid var(--line);
+}
+
+.hero-logo-card {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 28px;
+  text-align: center;
+}
+
+.hero-logo-card p {
+  max-width: 360px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+.studio-seal {
+  display: block;
+  width: min(100%, 360px);
+  height: auto;
+}
+
+.seal-ring,
+.seal-dot,
+.seal-note-head {
+  fill: none;
+  stroke: var(--line);
+}
+
+.seal-ring {
+  stroke-width: 8;
+}
+
+.seal-dot,
+.seal-note-head {
+  fill: var(--line);
+}
+
+.seal-text {
+  fill: var(--line);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 11px;
+}
+
+.seal-bottom {
+  font-size: 31px;
+  letter-spacing: 9px;
+}
+
+.seal-note {
+  fill: none;
+  stroke: var(--line);
+  stroke-linecap: round;
+  stroke-width: 12;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  border-top: 2px solid var(--line);
+}
+
+.about-copy p:last-child,
+.contact-card p:last-child,
+.lesson-card p:last-child,
+.price-card p:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 34px;
+}
+
+.lesson-grid,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.lesson-card,
+.price-card {
+  padding: 30px;
+  border-radius: var(--radius);
+}
+
+.lesson-card p,
+.price-card p,
+.feature span {
+  color: var(--muted);
+}
+
+.card-icon {
+  display: inline-grid;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 24px;
+  place-items: center;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding-top: 16px;
+}
+
+.feature {
+  display: grid;
+  gap: 8px;
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.feature strong {
+  font-size: 1.08rem;
+}
+
+.pricing {
+  padding-top: 72px;
+}
+
+.price-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-price {
+  background: var(--paper-light);
+}
+
+.price {
+  margin-bottom: 16px;
+  color: var(--ink);
+  font-size: clamp(2.4rem, 5vw, 3.7rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.contact {
+  padding-top: 72px;
+}
+
+.contact-card {
+  padding: clamp(34px, 7vw, 72px);
+  border-radius: 28px;
+}
+
+
+.footer {
+  padding: 28px 16px 42px;
+  color: var(--muted);
+  border-top: 2px solid var(--line);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.92rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .nav {
+    min-height: auto;
+    padding: 16px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .hero,
+  .about,
+  .lesson-grid,
+  .pricing-grid,
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    gap: 34px;
+    padding-top: 56px;
+  }
+
+  .hero-logo-card {
+    order: -1;
+  }
+
+  .lesson-card,
+  .price-card {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 560px) {
+  .logo {
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .seal-text {
+    font-size: 31px;
+    letter-spacing: 8px;
+  }
+
+  .seal-bottom {
+    font-size: 27px;
+    letter-spacing: 7px;
+  }
+}
