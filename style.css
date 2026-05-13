@@ -114,6 +114,12 @@ a {
   transform: scaleX(1);
 }
 
+.nav-links a:focus-visible,
+.button:focus-visible {
+  outline: 3px solid var(--line);
+  outline-offset: 4px;
+}
+
 .section {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
